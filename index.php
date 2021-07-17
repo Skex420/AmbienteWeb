@@ -32,23 +32,22 @@
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="Lista.php?p=1">Tarjetas madre</a>
                             <a class="dropdown-item" href="Lista.php?p=2">Tarjetas de video</a>
+                            <a class="dropdown-item" href="Lista.php?p=3">Memoria Ram</a>
+                            <a class="dropdown-item" href="Lista.php?p=4">Procesador</a>
+                            <a class="dropdown-item" href="Lista.php?p=5">Almacenamiento</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active" data-toggle="dropdown" data-target="desplegable"
                             href="#">Perifericos</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="Lista.php?p=3">Tarjetas madre</a>
-                            <a class="dropdown-item" href="Lista.php?p=4">Tarjetas de video</a>
+                            <a class="dropdown-item" href="Lista.php?p=6">Teclado</a>
+                            <a class="dropdown-item" href="Lista.php?p=7">Mouse</a>
+                            <a class="dropdown-item" href="Lista.php?p=8">Headset</a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" data-toggle="dropdown" data-target="desplegable"
-                            href="#">Accesorios</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="Lista.php?p=5">Tarjetas madre</a>
-                            <a class="dropdown-item" href="Lista.php?p=6">Tarjetas de video</a>
-                        </div>
+                    <li class="nav-item active">
+                        <a href="Lista.php?p=9" class="nav-link">Accesorios</a>
                     </li>
                     <form class="form-inline">
                         <input class="form-control mr-sm-2" placeholder="Buscar..." aria-label="Search...">
