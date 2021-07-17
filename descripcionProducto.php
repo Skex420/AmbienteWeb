@@ -3,7 +3,7 @@
     include 'ConnBD.php';
     $ConBD = AbrirBD();
 
-    $queryBD = "call Consultar_Producto(1);";
+    $queryBD = "call Consultar_Producto(2);";
     $resultado = $ConBD -> query($queryBD);
     $ConBD -> next_result();
    
@@ -27,11 +27,15 @@
 </head>
 
 <body>
-<form action="" method="post">
-    <?php
+    <form action="" method="post">
+
+        <?php
 include 'index.php'
     ?>
-</form>
+
+
+    </form>
 </body>
+
 
 </html>
