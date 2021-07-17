@@ -30,24 +30,24 @@
                         <a class="nav-link dropdown-toggle active" data-toggle="dropdown" data-target="desplegable"
                             href="#">Componentes</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="tarjetaMadre.php">Tarjetas madre</a>
-                            <a class="dropdown-item" href="tarjetaVideo.php">Tarjetas de video</a>
+                            <a class="dropdown-item" href="Lista.php?p=1">Tarjetas madre</a>
+                            <a class="dropdown-item" href="Lista.php?p=2">Tarjetas de video</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active" data-toggle="dropdown" data-target="desplegable"
                             href="#">Perifericos</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Tarjetas madre</a>
-                            <a class="dropdown-item" href="#">Tarjetas de video</a>
+                            <a class="dropdown-item" href="Lista.php?p=3">Tarjetas madre</a>
+                            <a class="dropdown-item" href="Lista.php?p=4">Tarjetas de video</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active" data-toggle="dropdown" data-target="desplegable"
                             href="#">Accesorios</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Tarjetas madre</a>
-                            <a class="dropdown-item" href="#">Tarjetas de video</a>
+                            <a class="dropdown-item" href="Lista.php?p=5">Tarjetas madre</a>
+                            <a class="dropdown-item" href="Lista.php?p=6">Tarjetas de video</a>
                         </div>
                     </li>
                     <form class="form-inline">
