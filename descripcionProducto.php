@@ -1,12 +1,12 @@
 <?php
-
+    $idTipo = $_GET['q'];
+    $idProducto = $_GET['r'];
     include 'ConnBD.php';
     $ConBD = AbrirBD();
 
-    $queryBD = "call Consultar_Producto(2);";
+    $queryBD = "call Consultar_Producto_Especifico($idTipo,$idProducto);";
     $resultado = $ConBD -> query($queryBD);
-    $ConBD -> next_result();
-   
+    $productoEncontrado=mysqli_fetch_array($resultado);
     CerrarBD($ConBD);
 
 ?>
@@ -32,7 +32,21 @@
         <?php
 include 'index.php'
     ?>
-
+    <div class="row">
+        <div class="column-md-3">
+        <?php
+            echo "<img class='img-fluid' src='" . $productoEncontrado["IMAGEN"] . "'>";
+        ?>
+        </div>
+        <div class="column-md-9">
+        <?php
+            echo "<h1 class='display-4'>".$productoEncontrado["PRODUCTO"]."</h1>";
+            echo "<p class='h6'>Descripción: ".$productoEncontrado["DESCRIPCION"]."</p>";
+            echo "<p class='h6'>Precio: ₡".$productoEncontrado["VALOR"]."</p>";
+            echo "<p class='h6'>Tipo: ".$productoEncontrado["TIPO"]."</p>";
+        ?>
+        </div>
+    </div>
 
     </form>
 </body>
