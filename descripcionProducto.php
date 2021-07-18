@@ -25,30 +25,32 @@
     <link href="css/fondo.css" rel="stylesheet" type="text/css">
 
 </head>
-
+<?php
+    include 'index.php'
+?>
 <body>
-    <form action="" method="post">
-
-        <?php
-include 'index.php'
-    ?>
-    <div class="row">
-        <div class="column-md-3">
-        <?php
-            echo "<img class='img-fluid' src='" . $productoEncontrado["IMAGEN"] . "'>";
-        ?>
+<div class="container-fluid">
+        <form action="" method="post">
+        <div class="row">
+            <div class="column-md-10 align-self-center">
+            <?php
+                    echo "<h1 class='display-4'>".$productoEncontrado["PRODUCTO"]."</h1>";
+                ?>
+            <?php
+                echo "<p class='h6'>Descripción: <br/>".str_replace('/','<br/><br/>',$productoEncontrado["DESCRIPCION"])."</p>";
+                echo "<p class='h4'><br/>Precio:<br/>₡".$productoEncontrado["VALOR"]."</p>";
+            ?>
+            </div>
+            <div class="column-md-2">
+            <?php
+                
+                echo "<img class='img' src='" . $productoEncontrado["IMAGEN"] . "' height='100%'>";
+            ?>
+            </div>
         </div>
-        <div class="column-md-9">
-        <?php
-            echo "<h1 class='display-4'>".$productoEncontrado["PRODUCTO"]."</h1>";
-            echo "<p class='h6'>Descripción: ".$productoEncontrado["DESCRIPCION"]."</p>";
-            echo "<p class='h6'>Precio: ₡".$productoEncontrado["VALOR"]."</p>";
-            echo "<p class='h6'>Tipo: ".$productoEncontrado["TIPO"]."</p>";
-        ?>
-        </div>
-    </div>
 
-    </form>
+        </form>
+</div>
 </body>
 
 

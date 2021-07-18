@@ -14,7 +14,7 @@
 
 </head>
 
-<body>
+<header>
     <div id="page-content-wrapper">
         <nav class="navbar navbar-expand-lg navbar-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -30,8 +30,8 @@
                         <a class="nav-link dropdown-toggle active" data-toggle="dropdown" data-target="desplegable"
                             href="#">Componentes</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="Lista.php?p=1">Tarjetas madre</a>
-                            <a class="dropdown-item" href="Lista.php?p=2">Tarjetas de video</a>
+                            <a class="dropdown-item" href="Lista.php?p=1">Tarjetas de video</a>
+                            <a class="dropdown-item" href="Lista.php?p=2">Tarjetas madre</a>
                             <a class="dropdown-item" href="Lista.php?p=3">Memoria Ram</a>
                             <a class="dropdown-item" href="Lista.php?p=4">Procesador</a>
                             <a class="dropdown-item" href="Lista.php?p=5">Almacenamiento</a>
@@ -57,7 +57,6 @@
             </div>
         </nav>
     </div>
-
     <div class="cuadroGiratorio">
         <div class="cuadro"></div>
         <div class="cuadro"></div>
@@ -83,7 +82,7 @@
         <div class="cuadro2"></div>
         <div class="cuadro2"></div>
     </div>
-
+    </header>
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -93,6 +92,4 @@
         $("#wrapper").toggleClass("toggled");
     });
     </script>
-</body>
-
 </html>

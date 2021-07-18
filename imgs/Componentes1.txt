@@ -1,0 +1,603 @@
+Tarjetas Madres
+
+
+ASUS PRIME A320M-K
+
+Plataforma: AMD
+
+Socket: AM4
+
+Chipset: AMD A320
+
+Formato: ATX
+
+Memoria: DDR4 3200(O.C.)/2933(O.C.)/2667/2400/2133
+
+Soporte para M.2 NVME/SATA
+
+₡ 48,000
+
+https://extremetechcr.com/tienda/componentes/1253-asus-prime-a320m-k.html
+
+
+
+GIGABYTE H410M H V2
+
+Plataforma: Intel
+
+Socket: 1200
+
+Chipset: H410
+
+Formato: Micro-ATX
+
+Memoria:  DDR4 2933 / 2800 / 2666 / 2400 / 213
+
+₡ 52,000
+
+https://extremetechcr.com/tienda/componentes/5911-gigabyte-h410m-h-v2.html
+
+
+
+MSI B450 TOMAHAWK MAX II
+
+Plataforma: AMD
+
+Socket: AM4
+
+Chipset: AMD B550
+
+Formato: Micro-ATX
+
+Memoria: DDR4 4000(O.C.) / 3600(O.C.) / 3333(O.C.) /3200/2933/2667/2400/2133 MHz
+
+₡ 85,000
+
+https://extremetechcr.com/tienda/componentes/5011-msi-b450-tomahawk-max-ii.html
+
+
+
+GIGABYTE B550M AORUS ELITE
+
+Plataforma: AMD
+
+Socket: AM4
+
+Chipset: AMD B550
+
+Formato: Micro-ATX
+
+Memoria: DDR4 4000(O.C.) / 3600(O.C.) / 3333(O.C.) /3200/2933/2667/2400/2133 MHz
+
+₡ 88,000
+
+https://extremetechcr.com/tienda/componentes/4449-gigabyte-b550m-aorus-elite.html
+
+
+
+ASUS TUF B550M PLUS
+
+Plataforma: AMD
+
+Socket: AM4
+
+Chipset: AMD B550
+
+Formato: Micro-ATX
+
+Memoria: DDR4 4800(O.C.)/4600(O.C)/4466(O.C.)
+/4400(O.C)/4266(O.C.)/4133(O.C.)/4000(O.C.)/3866(O.C.)
+/3733(O.C.)/3600(O.C.)/3466(O.C.)/3333(O.C.)/3200/3000
+/2800/2666/2400/2133 MHz
+
+₡ 122,000
+
+https://extremetechcr.com/tienda/componentes/4251-asus-tuf-b550m-plus.html
+
+
+
+ASUS PRIME Z590 A
+
+Plataforma: Intel
+
+Socket: 1200
+
+Chipset: Z590
+
+Formato: ATX
+
+Memoria: DDR4 5133(OC)/5000(OC)/4800(OC)/4600(OC)/4500(OC)
+
+4266(OC)/4133(OC)/4000(OC)/3866(OC)/3733(OC)/3600(OC)
+
+3400(OC)/3333(OC)/3200/3000/2933/2800/2666/2400/2133 MHz 
+
+₡ 209,000
+
+https://extremetechcr.com/tienda/componentes/5740-asus-prime-z590-a.html
+
+
+
+Tarjetas Videos
+
+
+BIOSTAR RADEON RX 560 4 GB
+
+Fabricante: Biostar
+
+GPU: AMD Radeon RX 560
+
+Memoria: 4 GB GDDR5
+
+Boost Clock: 1176 MHz
+
+₡ 125,000
+
+https://extremetechcr.com/tienda/componentes/5899-biostar-radeon-rx-560-4gb.html
+
+
+
+ASUS TUF GEFORCE GTX 1660 SUPER OC 6 GB
+
+Fabricante: Asus
+
+GPU: NVIDIA GeForce GTX 1660 Super
+
+Memoria: 6 GB GDDR5
+
+Boost Clock: 1845 MHz
+
+₡ 293,000
+
+https://extremetechcr.com/tienda/componentes/2860-asus-tuf-geforce-gtx-1660-super-oc-6-gb.html
+
+
+
+AORUS GEFORCE RTX 3070TI MASTER 8 GB
+
+Fabricante: Gigabyte
+
+GPU: NVIDIA GeForce RTX 3070Ti
+
+Memoria: 8 GB GDDR6X
+
+Boost Clock: 1875 MHz
+
+₡ 735,000
+
+https://extremetechcr.com/tienda/componentes/5975-aorus-geforce-rtx-3070ti-master-8-gb.html
+
+
+
+ZOTAC GEFORCE RTX 2060 6 GB
+
+Fabricante: Zotac
+
+GPU: NVIDIA GeForce RTX 2060
+
+Memoria: 6 GB GDDR6
+
+Boost Clock: 1680 MHz
+
+₡ 329,000
+
+https://extremetechcr.com/tienda/componentes/2661-zotac-geforce-rtx-2060-6-gb.html
+
+
+
+MSI GEFORCE RTX3060 VENTUS 2X OC 12G
+
+Fabricante: MSI
+
+GPU: NVIDIA GeForce RTX 3060
+
+Memoria: 12 GB GDDR6
+
+Core Clock: 1807 MHz
+
+₡ 375,000
+
+https://extremetechcr.com/tienda/componentes/5431-msi-geforce-rtx3060-ventus-2x-oc-12g.html
+
+
+
+ASUS TUF GEFORCE RTX 3080TI OC 12 GB
+
+Fabricante: Asus
+
+GPU: NVIDIA GeForce RTX 3080Ti
+
+Memoria: 12 GB GDDR6X
+
+Boost Clock: 1785 MHz
+
+₡ 1,299,000
+
+https://extremetechcr.com/tienda/componentes/5967-asus-tuf-geforce-rtx-3080ti-oc-12-gb.html
+
+
+
+Memorias Ram
+
+
+ADATA XPG GAMMIX D10 8 GB DDR4 3200 - NEGRO
+
+Velocidad: DDR4 3200
+
+Capacidad: 8 GB
+
+Latencia CAS: 16
+
+Voltaje: 1.35V
+
+₡ 33,000
+
+https://extremetechcr.com/tienda/componentes/3935-adata-xpg-gammix-d10-8-gb-ddr4-3200-negro.html
+
+
+
+TEAMGROUP T-FORCE DELTA RGB 8 GB DDR4 3200
+
+Velocidad: DDR4 3200
+
+Capacidad: 8 GB
+
+Latencia CAS: 16
+
+Voltaje: 1.35V
+
+LED RGB
+
+₡ 39,000
+
+https://extremetechcr.com/tienda/componentes/3927-teamgroup-t-force-delta-rgb-8-gb-ddr4-2666.html
+
+
+
+GEIL SUPER LUCE TUF RGB 8 GB DDR4 3200
+
+Velocidad: DDR4 3200
+
+Capacidad: 8 GB
+
+Latencia CAS: 16
+
+Voltaje: 1.35V
+
+RGB SYNC
+
+₡ 40,000
+
+https://extremetechcr.com/tienda/componentes/5731-geil-super-luce-tuf-rgb-8-gb-ddr4-3200.html
+
+
+
+G.SKILL TRIDENT Z RGB 8 GB DDR4 3200 - RYZEN
+
+Velocidad: DDR4 3200
+
+Capacidad: 8 GB
+
+Latencia CAS: 16
+
+Voltaje: 1.35V
+
+Optimizadas para AMD Ryzen
+
+₡ 43,000
+
+https://extremetechcr.com/tienda/componentes/2564-gskill-trident-z-rgb-8-gb-ddr4-3200-ryzen.html
+
+
+
+G.SKILL TRIDENT NEO RGB 8 GB DDR4 3600
+
+Velocidad: DDR4 3600
+
+Capacidad: 8 GB
+
+Latencia CAS: 16
+
+Voltaje: 1.35V
+
+₡ 48,000
+
+https://extremetechcr.com/tienda/componentes/5533-gskill-trident-neo-rgb-8-gb-ddr4-3600.html
+
+
+
+ADATA XPG SPECTRIX D60G 16 GB DDR4 3200
+
+Velocidad: DDR4 3200
+
+Capacidad: 16 GB
+
+Latencia CAS: 16
+
+Voltaje: 1.35V
+
+LED RGB
+
+₡ 69,000
+
+https://extremetechcr.com/tienda/componentes/3770-adata-xpg-spectrix-d60g-16-gb-ddr4-3200.html
+
+
+
+G.SKILL TRIDENT Z ROYAL 16 GB (2 X 8) GB DDR4 4000 SILVER
+
+Velocidad: DDR4 4000
+
+Capacidad: 16 GB
+
+Latencia CAS: 17
+
+Voltaje: 1.35V
+
+LED RGB
+
+₡ 129,000
+
+https://extremetechcr.com/tienda/componentes/6025-gskill-trident-z-royal-16-gb-2-x-8-gb-ddr4-4000-silver.html
+
+
+
+Procesadores
+
+
+INTEL CORE I5 11400F
+
+Socket: LGA 1200
+
+Familia: Rocket Lake
+
+Cores: 6
+
+Threads: 12
+
+Frecuencia: 2.6 Ghz / 4.4 Ghz Turbo
+
+₡ 135,000
+
+https://extremetechcr.com/tienda/componentes/5701-intel-core-i5-11400f.html
+
+
+
+AMD RYZEN 5 3600
+
+Frecuencia: 4.2 GHZ
+
+Cores: 6
+
+Threads: 12
+
+Cache: 3/32 MB (L2/L3)
+
+Socket: AM4
+
+Consumo: 65W
+
+₡ 155,000
+
+https://extremetechcr.com/tienda/componentes/3102-amd-ryzen-5-3600.html
+
+
+
+INTEL CORE I5 11600K
+
+Socket: LGA 1200
+
+Familia: Rocket Lake
+
+Cores: 6
+
+Threads: 12
+
+Frecuencia: 3.9 Ghz / 4.9 Ghz Turbo
+
+₡ 215,000
+
+https://extremetechcr.com/tienda/componentes/5727-intel-core-i5-11600k.html
+
+
+
+AMD RYZEN 5 5600X
+
+Frecuencia: 3.7 GHz / 4.6 GHz Max Boost
+
+Cores: 6
+
+Threads: 12
+
+Cache: 3/32 MB (L2/L3)
+
+Socket: AM4
+
+Consumo: 65W
+
+₡ 218,000
+
+https://extremetechcr.com/tienda/componentes/4823-amd-ryzen-5-5600x.html
+
+
+
+INTEL CORE I7 10700F
+
+Socket: LGA 1200
+
+Familia: Comet Lake
+
+Cores: 8
+
+Threads: 16
+
+Frecuencia: 2.9 Ghz / 4.8 Ghz Turbo
+
+₡ 245,000
+
+https://extremetechcr.com/tienda/componentes/5294-intel-core-i7-10700f.html
+
+
+
+AMD RYZEN 9 5950X
+
+Frecuencia: 3.4 GHz / 4.9 GHz Max Boost
+
+Cores: 16
+
+Threads: 32
+
+Cache: 8/64MB (L2/L3)
+
+Socket: AM4
+
+Consumo: 105W
+
+₡ 575,000
+
+https://extremetechcr.com/tienda/componentes/4869-amd-ryzen-9-5950x.html
+
+
+
+INTEL CORE I7 11700K
+
+Socket: LGA 1200
+
+Familia: Rocket Lake
+
+Cores: 8
+
+Threads: 16
+
+Frecuencia: 2. 5Ghz / 4.9 Ghz Turbo
+
+₡ 335,000
+
+https://extremetechcr.com/tienda/componentes/5675-intel-core-i7-11700k.html
+
+
+
+Almacenamiento
+
+
+KINGSTON DATATRAVELER 100 64 GB USB 3.0
+
+Capacidad: 64 GB
+
+Interfaz: USB 3.0 (Compatible con USB 2.0)
+
+₡ 6,000
+
+https://extremetechcr.com/tienda/componentes/3598-kingston-datatraveler-100-64-gb-usb-30.html
+
+
+
+ADATA SU630 240GB
+
+Fabricante: Adata
+
+Capacidad: 240 GB
+
+Velocidad Lectura: 520 MB/s
+
+Velocidad Escritura: 450 MB/s
+
+Interfaz: SATA III
+
+₡ 24,000
+
+https://extremetechcr.com/tienda/componentes/2785-adata-su630-240gb.html
+
+
+
+DISCO DURO SEAGATE BARRACUDA 2 TB 5400 RPM
+
+Capacidad: 2 TB
+
+Interfaz: SATA 6.0Gb/s
+
+RPM: 5400 RPM
+
+Cache: 256 MB
+
+Formato: 3.5"
+
+₡ 42,000
+
+https://extremetechcr.com/tienda/componentes/2686-disco-duro-seagate-barracuda-2-tb-54000-rpm.html
+
+
+
+ADATA XPG SPECTRIX S40G RGB 512 GB
+
+Fabricante: ADATA
+
+Capacidad: 512 GB
+
+Velocidad Lectura: 3500 MB/s
+
+Velocidad Escritura: 3000 MB/s
+
+Interfaz: M.2
+
+LED RGB
+
+₡ 56,000
+
+https://extremetechcr.com/tienda/componentes/3053-adata-xpg-spectrix-s40g-512-gb.html
+
+
+
+DISCO DURO SEAGATE BARRACUDA 4 TB 5400 RPM
+
+Capacidad: 4 TB
+
+Interfaz: SATA 6.0Gb/s
+
+RPM: 5400 RPM
+
+Cache: 256 MB
+
+Formato: 3.5"
+
+₡ 72,000
+
+https://extremetechcr.com/tienda/componentes/739-disco-duro-seagate-4-tb-7200-rpm.html
+
+
+
+KINGSTON A400 960 GB
+
+Fabricante: Kingston
+
+Capacidad: 960 GB
+
+Velocidad Lectura: 500 MB/s
+
+Velocidad Escritura: 450 MB/s
+
+Interfaz: SATA III
+
+₡ 79,000
+
+https://extremetechcr.com/tienda/componentes/2868-kingston-a400-960-gb.html
+
+
+
+ADATA XPG SPECTRIX S40G RGB 4 TB
+
+Fabricante: ADATA
+
+Capacidad: 4 TB
+
+Velocidad Lectura: 3500 MB/s
+
+Velocidad Escritura: 3000 MB/s
+
+Interfaz: M.2
+
+LED RGB
+
+₡ 345,000
+
+https://extremetechcr.com/tienda/componentes/5835-adata-xpg-spectrix-s40g-rgb-4-tb.html
