@@ -47,6 +47,23 @@ body {
     }
 }
 
-th {
-    text-align: center;
+
+/* Clases */
+
+.ColorSubtitulos {
+    color: blue;
+}
+
+
+/* Elementos */
+
+#ColorSub3 {
+    color: green;
+}
+
+
+/* Palabras Reservadas */
+
+h4 {
+    color: red;
 }

@@ -1,6 +1,5 @@
 <?php
 
-
     function AbrirBD()
     {
         $server = "localhost";
@@ -10,8 +9,6 @@
 
         return new mysqli($server,$user,$pass,$database);
     }    
-
-
     function CerrarBD($conexion)
     {
         $conexion -> close();
