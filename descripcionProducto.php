@@ -41,13 +41,13 @@
                 
             </div>
         <div class="row align-items-center">
-            <div class="column-md-4">
+            <div class="col-6">
                 <?php
                     echo "<p class='h6'>Descripción: <br/>".str_replace('/','<br/><br/>',$productoEncontrado["DESCRIPCION"])."</p>";
                     echo "<p class='h4'><br/>Precio:<br/>₡".$productoEncontrado["VALOR"]."</p>";
                 ?>
             </div>
-            <div class="column-md-8 ml-md-auto">
+            <div class="col-6">
                 <?php
                     echo "<img class='img' src='" . $productoEncontrado["IMAGEN"] . "' height='100%'>";
                 ?>

@@ -27,17 +27,19 @@
         include 'header.php'
     ?>
     <body>
-        <div class="card-columns">
+        <div class="card-deck">
             <?php
                 While($fila = mysqli_fetch_array($resultado)){
+                    echo "<div class='col-3'>";
                     echo "<div class='card text-white bg-dark mb-3'>";
                     echo "<img class='card-img-top img-thumbnail' src='" . $fila["IMAGEN"] . "'>";
-                    echo "<h5 class='card-title'>" . $fila["PRODUCTO"] . "</h5>";
+                    echo "<h6 class='card-title'>" . $fila["PRODUCTO"] . "</h6>";
                     echo "<p class='card-text'>₡ " . $fila["VALOR"] . "</p>";
                     echo "<a href='descripcionProducto.php?q=".$fila['ID_TIPO']."&r=".$fila['ID_PRODUCTO']."' class='btn btn-light btn-lg btn-block'>Ver detalles</a>";
                     echo "</div>";
+                    echo "</div>";
                 }
             ?>
-        </div>
+            </div>
     </body>
 </html>
