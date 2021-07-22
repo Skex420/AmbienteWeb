@@ -5,3 +5,8 @@ body {
     background-attachment: fixed;
     background-position: center;
 }
+
+.div-center {
+    margin-top: 25%;
+    margin-bottom: 25%;
+}

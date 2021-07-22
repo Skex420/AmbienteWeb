@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2021 at 01:47 AM
+-- Generation Time: Jul 22, 2021 at 07:20 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -56,19 +56,6 @@ CREATE TABLE `canton` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cliente`
---
-
-CREATE TABLE `cliente` (
-  `ID_CLIENTE` int(11) NOT NULL,
-  `NOMBRE` varchar(100) NOT NULL,
-  `PRIMER_APELLIDO` varchar(100) NOT NULL,
-  `SEGUNDO_APELLIDO` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `detalle_factura`
 --
 
@@ -101,7 +88,7 @@ CREATE TABLE `direccion` (
 CREATE TABLE `factura` (
   `ID_FACTURA` int(11) NOT NULL,
   `FECHA` date NOT NULL,
-  `ID_CLIENTE` int(11) NOT NULL,
+  `ID_USUARIO` int(11) NOT NULL,
   `ID_VENDEDOR` int(11) NOT NULL,
   `ID_SUCURSAL` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -157,6 +144,17 @@ CREATE TABLE `provincia` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `rol`
+--
+
+CREATE TABLE `rol` (
+  `ID_ROL` int(11) NOT NULL,
+  `ROL` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sucursal`
 --
 
@@ -195,14 +193,14 @@ INSERT INTO `tipo` (`ID_TIPO`, `TIPO`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `vendedor`
+-- Table structure for table `usuario`
 --
 
-CREATE TABLE `vendedor` (
-  `ID_VENDEDOR` int(11) NOT NULL,
-  `NOMBRE` varchar(100) NOT NULL,
-  `PRIMER_APELLIDO` varchar(100) NOT NULL,
-  `SEGUNDO_APELLIDO` varchar(100) NOT NULL
+CREATE TABLE `usuario` (
+  `ID_USUARIO` int(11) NOT NULL,
+  `USUARIO` varchar(50) NOT NULL,
+  `PASS` varchar(30) NOT NULL,
+  `ID_ROL` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -215,12 +213,6 @@ CREATE TABLE `vendedor` (
 ALTER TABLE `canton`
   ADD PRIMARY KEY (`ID_CANTON`),
   ADD KEY `ID_PROVINCIA` (`ID_PROVINCIA`);
-
---
--- Indexes for table `cliente`
---
-ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`ID_CLIENTE`);
 
 --
 -- Indexes for table `detalle_factura`
@@ -243,8 +235,6 @@ ALTER TABLE `direccion`
 --
 ALTER TABLE `factura`
   ADD PRIMARY KEY (`ID_FACTURA`),
-  ADD KEY `ID_CLIENTE` (`ID_CLIENTE`),
-  ADD KEY `ID_VENDEDOR` (`ID_VENDEDOR`),
   ADD KEY `ID_SUCURSAL` (`ID_SUCURSAL`);
 
 --
@@ -261,6 +251,12 @@ ALTER TABLE `provincia`
   ADD PRIMARY KEY (`ID_PROVINCIA`);
 
 --
+-- Indexes for table `rol`
+--
+ALTER TABLE `rol`
+  ADD PRIMARY KEY (`ID_ROL`);
+
+--
 -- Indexes for table `sucursal`
 --
 ALTER TABLE `sucursal`
@@ -274,10 +270,11 @@ ALTER TABLE `tipo`
   ADD PRIMARY KEY (`ID_TIPO`);
 
 --
--- Indexes for table `vendedor`
+-- Indexes for table `usuario`
 --
-ALTER TABLE `vendedor`
-  ADD PRIMARY KEY (`ID_VENDEDOR`);
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`ID_USUARIO`),
+  ADD KEY `ID_ROL` (`ID_ROL`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -317,8 +314,6 @@ ALTER TABLE `direccion`
 -- Constraints for table `factura`
 --
 ALTER TABLE `factura`
-  ADD CONSTRAINT `factura_ibfk_1` FOREIGN KEY (`ID_CLIENTE`) REFERENCES `cliente` (`ID_CLIENTE`),
-  ADD CONSTRAINT `factura_ibfk_2` FOREIGN KEY (`ID_VENDEDOR`) REFERENCES `vendedor` (`ID_VENDEDOR`),
   ADD CONSTRAINT `factura_ibfk_3` FOREIGN KEY (`ID_SUCURSAL`) REFERENCES `sucursal` (`ID_SUCURSAL`);
 
 --
@@ -332,6 +327,12 @@ ALTER TABLE `producto`
 --
 ALTER TABLE `sucursal`
   ADD CONSTRAINT `sucursal_ibfk_1` FOREIGN KEY (`ID_DIRECCION`) REFERENCES `direccion` (`ID_DIRECCION`);
+
+--
+-- Constraints for table `usuario`
+--
+ALTER TABLE `usuario`
+  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`ID_ROL`) REFERENCES `rol` (`ID_ROL`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

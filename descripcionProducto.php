@@ -37,9 +37,6 @@
     </div>
     <div class="container">
         <form action="" method="post">
-            <div class="row">
-                
-            </div>
         <div class="row align-items-center">
             <div class="col-6">
                 <?php

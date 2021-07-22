@@ -1,3 +1,27 @@
+<?php
+    session_start();
+    if (isset($_POST['btnLogin'])){
+        $username=$_POST['txtUser'];
+        $pass=$_POST['txtPassword'];
+        include 'ConnBD.php';
+        $con=abrirBD();
+        $queryConsultarUsuarioRol="call Verificacion_Login_Permisos('$username','$pass');";
+        $resultadoRol=$con->query($queryConsultarUsuarioRol);
+        if (mysqli_num_rows($resultadoRol)==1){
+            $rol=mysqli_fetch_assoc($resultadoRol);
+            $_SESSION['RolUsuario']=$rol['ID_ROL'];
+            if ($_SESSION['RolUsuario']==1){
+            header("Location: SuccessAdmin.php");
+            }else{
+                header("Location: SuccessUser.php");
+            }
+        }else{
+            header("Location: invalidLogin.php");
+        }
+    }    
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,10 +35,9 @@
         <link href="css/background.css" rel="stylesheet">
         <link href="css/inicio.css" rel="stylesheet" type="text/css">
     </head>
-    <?php
-        include 'header.php';
-    ?>
-    <body>
-        <h6>test</h6>
+    <body class="text-center">
+        <?php
+            include 'loginBox.php';
+        ?>
     </body>
 </html>
