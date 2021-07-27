@@ -1,4 +1,8 @@
 <?php
+    session_start();
+    if ($_SESSION['RolUsuario']!=1 || $_SESSION['RolUsuario']==NULL){
+        header("Location: index.php");
+    }
     include 'ConnBD.php';
     $ConBD = AbrirBD();
 
@@ -32,8 +36,9 @@
     <form action="" method="post">
         <div class="container-fluid">
             <h2>Admin</h2>
+            <h2>Lista de Productos</h2>
             <br>
-            <table class="table table-hover table-bordered">
+            <table class="table table-hover table-dark">
                 <thead>
                     <tr>
                         <th>Producto</th>
@@ -50,14 +55,24 @@
                 echo "<td>" . $fila["PRODUCTO"] . "</td>";
                 echo "<td>" . $fila["VALOR"] . "</td>";
                 echo "<td>" . $fila["TIPO"] . "</td>";
-                echo "<td><a href='mantenimiento.php?q=".$fila['ID_TIPO']."&r=".$fila['ID_PRODUCTO']."' class='btn btn-success'>Actualizar Producto</a></td>";
+                echo "<td><a href='mantenimiento.php?q=".$fila['ID_PRODUCTO']."&r=".$fila['ID_TIPO']."' class='btn btn-success' style='width:100%'>Actualizar Producto</a></td>";
                 echo "</tr>";
             }
         ?>
                 </tbody>
             </table>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col">
+                    <a href="registrarProducto.php" class="btn btn-info" style="width:100%">Registrar Producto</a>
+                    <br /><br />
 
-            <a href="registrarProducto.php" class="btn btn-success">Registrar Producto</a>
+                    <a href="ajustes.php" class="btn btn-dark btn-block" style="width:100%">Regresar</a>
+                    <br /><br />
+                </div>
+            </div>
 
         </div>
 

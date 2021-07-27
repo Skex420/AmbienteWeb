@@ -1,8 +1,12 @@
 <?php
-    $idTipo = $_GET['q'];
-    $idProducto = $_GET['r'];
+    session_start();
+    if ($_SESSION['RolUsuario']!=1 || $_SESSION['RolUsuario']==NULL){
+        header("Location: index.php");
+    }
+    $idTipo = $_GET['r'];
+    $idProducto = $_GET['q'];
     include 'ConnBD.php';
-    $ConnBD = AbrirBD();
+    $ConBD = AbrirBD();
 
     if(isset($_POST['btnEliminar']))
     {
@@ -18,19 +22,20 @@
         $descripcion= $_POST['txtDescripcion'];
         $idTipo= $_POST['cboTipo'];
         $imagen = $_POST['txtImagen'];
-        $queryActualizar = "call Actualizar_Producto('$producto', $precio, '$descripcion', $idTipo, )"; 
+        $queryActualizar = "call Actualizar_Producto('$producto', $precio, '$descripcion', $idTipo, '$imagen')"; 
         $ConBD -> query($queryActualizar);
+        header("Location: ajustes.php");
     }
 
     $queryProducto = "call Consultar_Producto_Especifico($idTipo,$idProducto);";
-    $productoEncontrado = $ConBD -> query($queryProducto);
+    $resultadoProducto = $ConBD -> query($queryProducto);
     $ConBD -> next_result();
 
     $queryTipo = "call Consultar_Tipos()";
     $resultadoTipo = $ConBD -> query($queryTipo);
     $ConBD -> next_result();
 
-    $productoEncontrado= mysqli_fetch_array($productoEncontrado);
+    $productoEncontrado= mysqli_fetch_array($resultadoProducto);
     CerrarBD($ConBD);
 
 ?>
@@ -62,21 +67,26 @@
 
                     Producto
                     <input type="text" id="txtProducto" name="txtProducto" class="form-control"
-                        value="<?php echo $$productoEncontrado['PRODUCTO']; ?>" required oninvalid="this.setCustomValidity('El producto es requerido')" oninput="setCustomValidity('')"/>>
+                        placeholder='Ingrese el producto' value="<?php echo $productoEncontrado['PRODUCTO']; ?>"
+                        required oninvalid="this.setCustomValidity('El producto es requerido')"
+                        oninput="setCustomValidity('')" />
 
                 </div>
                 <div class="col-2">
 
                     Precio
                     <input type="text" id="txtValor" name="txtValor" class="form-control"
-                        value="<?php echo $$productoEncontrado['VALOR']; ?>"required oninvalid="this.setCustomValidity('El precio es requerido')" oninput="setCustomValidity('')"/>
+                        placeholder='Ingrese el precio' value="<?php echo $productoEncontrado['VALOR']; ?>" required
+                        oninvalid="this.setCustomValidity('El precio es requerido')" oninput="setCustomValidity('')" />
 
                 </div>
                 <div class="col-4">
 
                     Descripción
                     <input type="text" id="txtDescripcion" name="txtDescripcion" class="form-control"
-                        value="<?php echo $$productoEncontrado['DESCRIPCION']; ?>"required oninvalid="this.setCustomValidity('La descripción es requerida')" oninput="setCustomValidity('')"/>
+                        placeholder='Ingrese la descripción' value="<?php echo $productoEncontrado['DESCRIPCION']; ?>"
+                        required oninvalid="this.setCustomValidity('La descripción es requerida')"
+                        oninput="setCustomValidity('')" />
 
                 </div>
                 <div class="col-2">
@@ -86,7 +96,7 @@
                         <?php
                             While($fila = mysqli_fetch_array($resultadoTipo))
                             {
-                                if($fila["ID_TIPO"] == $$productoEncontrado['ID_TIPO'])
+                                if($fila["ID_TIPO"] == $productoEncontrado['ID_TIPO'])
                                 {
                                     echo "<option value=" . $fila["ID_TIPO"] . " selected>" . $fila["TIPO"] . "</option>"; 
                                 }
@@ -103,7 +113,9 @@
 
                     Imagen
                     <input type="text" id="txtImagen" name="txtImagen" class="form-control"
-                        value="<?php echo $$productoEncontrado['IMAGEN']; ?>"required oninvalid="this.setCustomValidity('El link de la imagen es requerido')" oninput="setCustomValidity('')"/>
+                        placeholder='Ingrese el link de la imagen' value="<?php echo $productoEncontrado['IMAGEN']; ?>"
+                        required oninvalid="this.setCustomValidity('El link de la imagen es requerido')"
+                        oninput="setCustomValidity('')" />
 
                     <br />
                     <input type="submit" id="btnActualizar" name="btnActualizar" class="btn btn-info"
@@ -111,13 +123,16 @@
                     <br /><br />
 
                     <input type="submit" id="btnEliminar" name="btnEliminar" class="btn btn-danger"
-                        value="Eliminar Producto" style="width:100%">;
+                        value="Eliminar Producto" style="width:100%">
+                    <br /><br />
+
+                    <a href="ajustes.php" class="btn btn-dark btn-block" style="width:100%">Regresar</a>
 
                 </div>
             </div>
         </div>
         <script>
-            /*
+        /*
         function QuitarEspaciosEnBlanco(elemento) {
             $(elemento).val($(elemento).val().trim());
         }
@@ -140,6 +155,7 @@
 
             return true;
         }
+        */
         </script>
     </form>
 </body>
