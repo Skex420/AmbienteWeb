@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2021 at 07:20 AM
+-- Generation Time: Jul 27, 2021 at 03:25 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -37,6 +37,12 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `Consultar_Producto_Especifico` (IN 
 SELECT pro.PRODUCTO, pro.VALOR, pro.DESCRIPCION, pro.IMAGEN, ti.TIPO FROM PRODUCTO pro
 INNER JOIN TIPO ti ON ti.ID_TIPO=pro.ID_TIPO
 WHERE pro.ID_TIPO = V_ID_TIPO AND pro.ID_PRODUCTO=V_ID_PRODUCTO;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Verificacion_Login_Permisos` (IN `V_USER` VARCHAR(100), IN `V_PASS` VARCHAR(100))  BEGIN
+SELECT r.ID_ROL FROM USUARIO u
+INNER JOIN ROL r on r.ID_ROL=u.ID_ROL
+WHERE u.USUARIO=V_USER AND u.PASS=V_PASS;
 END$$
 
 DELIMITER ;
@@ -152,6 +158,14 @@ CREATE TABLE `rol` (
   `ROL` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `rol`
+--
+
+INSERT INTO `rol` (`ID_ROL`, `ROL`) VALUES
+(1, 'Admin'),
+(2, 'Usuario');
+
 -- --------------------------------------------------------
 
 --
@@ -202,6 +216,14 @@ CREATE TABLE `usuario` (
   `PASS` varchar(30) NOT NULL,
   `ID_ROL` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `usuario`
+--
+
+INSERT INTO `usuario` (`ID_USUARIO`, `USUARIO`, `PASS`, `ID_ROL`) VALUES
+(1, 'admin01', 'admin01', 1),
+(2, 'user01', 'user01', 2);
 
 --
 -- Indexes for dumped tables
