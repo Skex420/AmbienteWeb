@@ -3,7 +3,7 @@
 
     $idTipoRegreso=$_GET['q'];
 
-    if ($_SESSION['RolUsuario']!=1 || $_SESSION['RolUsuario']==NULL){
+    if ($_SESSION['RolUsuario']!=1){
         header("Location: index.php");
     }
     include 'ConnBD.php';
@@ -21,7 +21,7 @@
         $queryRegistrar = "call Registrar_Producto('$idProducto', '$producto', '$precio', '$descripcion', $idTipo, '$imagen')"; 
         $ConBD -> query($queryRegistrar);
         
-        header('Location: Lista.php?p='.$idTipoRegreso);
+        header('Location: Lista.php?p='.$idTipo);
     }
     
     $queryTipo = "call Consultar_Tipos()";
@@ -85,8 +85,9 @@
                 <div class="col-2">
 
                     <label for="txtDescripcion">Descripción</label>
-                    <textarea rows="3" id="txtDescripcion" name="txtDescripcion" class="form-control" value=""
-                     required oninvalid="this.setCustomValidity('La descripción es requerida')" oninput="setCustomValidity('')">Ingrese una descripción(Cada slash es un salto de linea)</textarea>
+                    <textarea rows="6" id="txtDescripcion" name="txtDescripcion" class="form-control" value=""
+                     required oninvalid="this.setCustomValidity('La descripción es requerida')" placeholder="Ingrese una descripción, cada / cuenta como salto de línea" oninput="setCustomValidity('')">
+                     </textarea>
                 </div>
                 <div class="col-2">
 
@@ -115,8 +116,6 @@
                     <br /><br />
 
                     <a href="Lista.php?p='<?php echo $idTipoRegreso?>'" class="btn btn-dark btn-block" style="width:100%">Regresar</a>
-
-
                 </div>
             </div>
         </div>

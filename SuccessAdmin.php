@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if ($_SESSION['RolUsuario']==NULL){
+    if ($_SESSION['RolUsuario']!=1){
         header("Location: index.php");
     }
     include 'ConnBD.php';

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if ($_SESSION['RolUsuario']!=1 || $_SESSION['RolUsuario']==NULL){
+    if ($_SESSION['RolUsuario']!=1){
         header("Location: index.php");
     }
     $idTipo = $_GET['r'];
@@ -12,7 +12,7 @@
     {
         $queryEliminar = "call Eliminar_Producto($idProducto, $idTipo)"; 
         $ConBD -> query($queryEliminar);
-        header("Location: ajustes.php");
+        header('Location: Lista.php?p='.$idTipo);
     }
 
     if(isset($_POST['btnActualizar']))
@@ -20,11 +20,10 @@
         $producto= $_POST['txtProducto'];
         $precio= $_POST['txtValor'];
         $descripcion= $_POST['txtDescripcion'];
-        $idTipo= $_POST['cboTipo'];
         $imagen = $_POST['txtImagen'];
-        $queryActualizar = "call Actualizar_Producto('$producto', $precio, '$descripcion', $idTipo, '$imagen')"; 
+        $queryActualizar = "call Actualizar_Producto($idProducto,'$producto', $precio, '$descripcion', $idTipo, '$imagen')"; 
         $ConBD -> query($queryActualizar);
-        header("Location: ajustes.php");
+        header('Location: Lista.php?p='.$idTipo);
     }
 
     $queryProducto = "call Consultar_Producto_Especifico($idTipo,$idProducto);";
@@ -92,21 +91,12 @@
                 <div class="col-2">
 
                     Tipo
-                    <select id="cboTipo" name="cboTipo" class="form-control">
-                        <?php
-                            While($fila = mysqli_fetch_array($resultadoTipo))
-                            {
-                                if($fila["ID_TIPO"] == $productoEncontrado['ID_TIPO'])
-                                {
-                                    echo "<option value=" . $fila["ID_TIPO"] . " selected>" . $fila["TIPO"] . "</option>"; 
-                                }
-                                else
-                                {
-                                    echo "<option value=" . $fila["ID_TIPO"] . ">" . $fila["TIPO"] . "</option>";
-                                }                                    
-                            }
-                            ?>
-                    </select>
+                    <input type="text" id="txtTipo" name="txtTipo" class="form-control"
+                    readonly value="
+                    <?php 
+                    echo $productoEncontrado['TIPO'];
+                    ?>
+                    "/>
 
                 </div>
                 <div class="col-2">
@@ -126,7 +116,7 @@
                         value="Eliminar Producto" style="width:100%">
                     <br /><br />
 
-                    <a href="ajustes.php" class="btn btn-dark btn-block" style="width:100%">Regresar</a>
+                    <a href="Lista.php?p='<?php echo $idTipo?>'" class="btn btn-dark btn-block" style="width:100%">Regresar</a>
 
                 </div>
             </div>

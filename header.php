@@ -33,18 +33,16 @@
                         <li class="nav-item active">
                             <a href="Lista.php?p=9" class="nav-link">Accesorios</a>
                         </li>
-                        <?php
-                            if ($_SESSION['RolUsuario']==1){
-                                echo "<li class='nav-item active'>";
-                                echo"<a href='ajustes.php' class='nav-link'>Ajustes</a>";
-                                echo"</li>";
-                            }
-                        ?>
                         <form class="form-inline">
                             <input class="form-control mr-sm-2" placeholder="Buscar..." aria-label="Search...">
                             <button class="btn btn-outline-dark">Buscar</button>
                         </form>
                     </ul>
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="logout.php">Salir</a>
+                            </li>
+                        </ul>
                 </div>
             </nav>
         </div>

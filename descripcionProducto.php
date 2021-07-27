@@ -1,4 +1,8 @@
 <?php
+    session_start();
+    if ($_SESSION['RolUsuario']==NULL){
+        header("Location: index.php");
+    }
     $idTipo = $_GET['q'];
     $idProducto = $_GET['r'];
     include 'ConnBD.php';

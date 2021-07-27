@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if ($_SESSION['RolUsuario']==NULL){
+        header("Location: index.php");
+    }
     include 'ConnBD.php';
     $idTipo = $_GET['p'];
 
@@ -52,7 +55,7 @@
                     echo "<img class='card-img-top img-thumbnail' src='" . $fila["IMAGEN"] . "'>";
                     echo "<h6 class='card-title'>" . $fila["PRODUCTO"] . "</h6>";
                     echo "<p class='card-text'>₡ " . $fila["VALOR"] . "</p>";
-                    echo "<a href='descripcionProducto.php?q=".$fila['ID_TIPO']."&r=".$fila['ID_PRODUCTO']."' class='btn btn-light btn-lg btn-block'>Ver detalles</a>";
+                    echo "<a href='descripcionProducto.php?q=".$fila['ID_TIPO']."&r=".$fila['ID_PRODUCTO']."' class='btn btn-light btn-lg btn-block'>Ver detalles</a>";    
                     if ($_SESSION['RolUsuario']==1){
                         echo"<a href='mantenimiento.php?q=".$fila['ID_PRODUCTO']."&r=".$fila['ID_TIPO']."' class='btn btn-success btn-lg btn-block'>Actualizar Producto</a>";
                     }
