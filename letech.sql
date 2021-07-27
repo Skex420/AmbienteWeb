@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-07-2021 a las 07:05:31
+-- Tiempo de generación: 27-07-2021 a las 23:00:58
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -42,7 +42,7 @@ WHERE ID_TIPO = v_id_tipo;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Consultar_Producto_Especifico` (IN `V_ID_TIPO` INT, IN `V_ID_PRODUCTO` INT)  BEGIN
-SELECT pro.PRODUCTO, pro.VALOR, pro.DESCRIPCION, pro.IMAGEN, ti.TIPO FROM PRODUCTO pro
+SELECT pro.PRODUCTO, pro.VALOR, pro.DESCRIPCION, pro.IMAGEN, pro.ID_TIPO, ti.TIPO FROM PRODUCTO pro
 INNER JOIN TIPO ti ON ti.ID_TIPO=pro.ID_TIPO
 WHERE pro.ID_TIPO = V_ID_TIPO AND pro.ID_PRODUCTO=V_ID_PRODUCTO;
 END$$
