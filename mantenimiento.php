@@ -131,32 +131,6 @@
                 </div>
             </div>
         </div>
-        <script>
-        /*
-        function QuitarEspaciosEnBlanco(elemento) {
-            $(elemento).val($(elemento).val().trim());
-        }
-
-        function QuitarTodosEspaciosEnBlanco(elemento) {
-            $(elemento).val($(elemento).val().replace(/ /g, ''));
-        }
-
-        function ValidarCampos() {
-            var producto = document.getElementById("txtProducto").value.trim();
-            var precio = document.getElementById("txtValor").value.trim();
-            var descripcion = document.getElementById("txtDescripcion").value.trim();
-            var imagen = document.getElementById("txtImagen").value.trim();
-
-
-            if (producto == ""|| precio == "" || descripcion == "" || imagen == "") {
-                alert("Debes ingresar valores validos");
-                return false;
-            }
-
-            return true;
-        }
-        */
-        </script>
     </form>
 </body>
 

@@ -114,39 +114,12 @@
                         value="Registrar Producto" style="width:100%">
                     <br /><br />
 
-                    <a href="Lista.php?p='<?php.$fila['ID_TIPO']?>" class="btn btn-dark btn-block" style="width:100%">Regresar</a>
+                    <a href="Lista.php?p='<?php echo $idTipoRegreso?>'" class="btn btn-dark btn-block" style="width:100%">Regresar</a>
 
 
                 </div>
             </div>
         </div>
-        <script>
-        /*
-        function QuitarEspaciosEnBlanco(elemento) {
-            $(elemento).val($(elemento).val().trim());
-        }
-
-        function QuitarTodosEspaciosEnBlanco(elemento) {
-            $(elemento).val($(elemento).val().replace(/ /g, ''));
-        }
-
-        function ValidarCampos() {
-            var producto = document.getElementById("txtProducto").value.trim();
-            var precio = document.getElementById("txtValor").value.trim();
-            var descripcion = document.getElementById("txtDescripcion").value.trim();
-            var imagen = document.getElementById("txtImagen").value.trim();
-
-
-            if (producto == "" || precio == "" || descripcion == "" || imagen == "") {
-                alert("Debes ingresar valores validos");
-                return false;
-            } else {
-                return true;
-            }
-onsubmit="return ValidarCampos();" se coloca en el primer div donde esta el container
-        }
-        */
-        </script>
     </form>
 </body>
 

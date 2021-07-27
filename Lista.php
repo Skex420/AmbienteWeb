@@ -37,7 +37,7 @@
             echo '<div class="container-fluid">';
             echo '<div class="row">';
             echo '<div class="col-12">';
-            echo '<a href="registrarProducto.php?q="'.$idTipo.' class="btn btn-info">Registrar Producto</a>';
+            echo '<a href="registrarProducto.php?q='.$idTipo.'" class="btn btn-info">Registrar Producto</a>';
             echo '</div>';
             echo '</div>';
             echo '</div>';
