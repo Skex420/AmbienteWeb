@@ -7,10 +7,11 @@
         $con=abrirBD();
         $queryBuscarUsuario="call Buscar_Usuario('$username');";
         $resultadoBusqueda=$con->query($queryBuscarUsuario);
-        $con -> next_result();
+       
         if (mysqli_num_rows($resultadoBusqueda)==0){
-            $queryConsultarUsuarioRol="call Insertar_Usuario('$username','$pass',2);";
-            $resultadoRol=$con->query($queryConsultarUsuarioRol);
+            $con -> next_result();
+            $queryInsertarUsuario="call Insertar_Usuario('$username','$pass',2);";
+            $resultadoUsuario=$con->query($queryInsertarUsuario);
             $con -> next_result();
             CerrarBD($con);
             header("Location: index.php");
