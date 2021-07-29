@@ -2,10 +2,10 @@
 -- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 27-07-2021 a las 23:00:58
--- Versión del servidor: 10.4.19-MariaDB
--- Versión de PHP: 8.0.6
+-- Host: 127.0.0.1
+-- Generation Time: Jul 29, 2021 at 02:57 AM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,12 +18,12 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `letech`
+-- Database: `letech`
 --
 
 DELIMITER $$
 --
--- Procedimientos
+-- Procedures
 --
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Actualizar_Producto` (IN `pIdProducto` INT(11), IN `pProducto` VARCHAR(100), IN `pValor` DOUBLE, IN `pDescripcion` VARCHAR(500), IN `pIdTipo` INT(11), IN `pImagen` VARCHAR(500))  BEGIN
 
@@ -42,7 +42,7 @@ WHERE ID_TIPO = v_id_tipo;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Consultar_Producto_Especifico` (IN `V_ID_TIPO` INT, IN `V_ID_PRODUCTO` INT)  BEGIN
-SELECT pro.PRODUCTO, pro.VALOR, pro.DESCRIPCION, pro.IMAGEN, pro.ID_TIPO, ti.TIPO FROM PRODUCTO pro
+SELECT pro.PRODUCTO, pro.VALOR, pro.DESCRIPCION, pro.IMAGEN, ti.TIPO, ti.ID_TIPO FROM PRODUCTO pro
 INNER JOIN TIPO ti ON ti.ID_TIPO=pro.ID_TIPO
 WHERE pro.ID_TIPO = V_ID_TIPO AND pro.ID_PRODUCTO=V_ID_PRODUCTO;
 END$$
@@ -91,7 +91,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `canton`
+-- Table structure for table `canton`
 --
 
 CREATE TABLE `canton` (
@@ -103,7 +103,7 @@ CREATE TABLE `canton` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `detalle_factura`
+-- Table structure for table `detalle_factura`
 --
 
 CREATE TABLE `detalle_factura` (
@@ -116,7 +116,7 @@ CREATE TABLE `detalle_factura` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `direccion`
+-- Table structure for table `direccion`
 --
 
 CREATE TABLE `direccion` (
@@ -129,7 +129,7 @@ CREATE TABLE `direccion` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `factura`
+-- Table structure for table `factura`
 --
 
 CREATE TABLE `factura` (
@@ -143,7 +143,7 @@ CREATE TABLE `factura` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `producto`
+-- Table structure for table `producto`
 --
 
 CREATE TABLE `producto` (
@@ -156,7 +156,7 @@ CREATE TABLE `producto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `producto`
+-- Dumping data for table `producto`
 --
 
 INSERT INTO `producto` (`ID_PRODUCTO`, `PRODUCTO`, `VALOR`, `DESCRIPCION`, `ID_TIPO`, `IMAGEN`) VALUES
@@ -180,7 +180,7 @@ INSERT INTO `producto` (`ID_PRODUCTO`, `PRODUCTO`, `VALOR`, `DESCRIPCION`, `ID_T
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `provincia`
+-- Table structure for table `provincia`
 --
 
 CREATE TABLE `provincia` (
@@ -191,7 +191,7 @@ CREATE TABLE `provincia` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `rol`
+-- Table structure for table `rol`
 --
 
 CREATE TABLE `rol` (
@@ -200,17 +200,18 @@ CREATE TABLE `rol` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `rol`
+-- Dumping data for table `rol`
 --
 
 INSERT INTO `rol` (`ID_ROL`, `ROL`) VALUES
 (1, 'Admin'),
-(2, 'Usuario');
+(2, 'Usuario'),
+(3, 'Invitado');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `sucursal`
+-- Table structure for table `sucursal`
 --
 
 CREATE TABLE `sucursal` (
@@ -222,7 +223,7 @@ CREATE TABLE `sucursal` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipo`
+-- Table structure for table `tipo`
 --
 
 CREATE TABLE `tipo` (
@@ -231,7 +232,7 @@ CREATE TABLE `tipo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `tipo`
+-- Dumping data for table `tipo`
 --
 
 INSERT INTO `tipo` (`ID_TIPO`, `TIPO`) VALUES
@@ -248,7 +249,7 @@ INSERT INTO `tipo` (`ID_TIPO`, `TIPO`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Table structure for table `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -259,26 +260,27 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `usuario`
+-- Dumping data for table `usuario`
 --
 
 INSERT INTO `usuario` (`ID_USUARIO`, `USUARIO`, `PASS`, `ID_ROL`) VALUES
 (1, 'admin01', 'admin01', 1),
-(2, 'user01', 'user01', 2);
+(2, 'user01', 'user01', 2),
+(3, 'invitado', 'invitado', 3);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `canton`
+-- Indexes for table `canton`
 --
 ALTER TABLE `canton`
   ADD PRIMARY KEY (`ID_CANTON`),
   ADD KEY `ID_PROVINCIA` (`ID_PROVINCIA`);
 
 --
--- Indices de la tabla `detalle_factura`
+-- Indexes for table `detalle_factura`
 --
 ALTER TABLE `detalle_factura`
   ADD PRIMARY KEY (`ID_DETALLE_FACTURA`),
@@ -286,7 +288,7 @@ ALTER TABLE `detalle_factura`
   ADD KEY `ID_PRODUCTO` (`ID_PRODUCTO`);
 
 --
--- Indices de la tabla `direccion`
+-- Indexes for table `direccion`
 --
 ALTER TABLE `direccion`
   ADD PRIMARY KEY (`ID_DIRECCION`),
@@ -294,105 +296,105 @@ ALTER TABLE `direccion`
   ADD KEY `ID_CANTON` (`ID_CANTON`);
 
 --
--- Indices de la tabla `factura`
+-- Indexes for table `factura`
 --
 ALTER TABLE `factura`
   ADD PRIMARY KEY (`ID_FACTURA`),
   ADD KEY `ID_SUCURSAL` (`ID_SUCURSAL`);
 
 --
--- Indices de la tabla `producto`
+-- Indexes for table `producto`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`ID_PRODUCTO`,`ID_TIPO`) USING BTREE,
   ADD KEY `FK_ID_TIPO` (`ID_TIPO`);
 
 --
--- Indices de la tabla `provincia`
+-- Indexes for table `provincia`
 --
 ALTER TABLE `provincia`
   ADD PRIMARY KEY (`ID_PROVINCIA`);
 
 --
--- Indices de la tabla `rol`
+-- Indexes for table `rol`
 --
 ALTER TABLE `rol`
   ADD PRIMARY KEY (`ID_ROL`);
 
 --
--- Indices de la tabla `sucursal`
+-- Indexes for table `sucursal`
 --
 ALTER TABLE `sucursal`
   ADD PRIMARY KEY (`ID_SUCURSAL`),
   ADD KEY `ID_DIRECCION` (`ID_DIRECCION`);
 
 --
--- Indices de la tabla `tipo`
+-- Indexes for table `tipo`
 --
 ALTER TABLE `tipo`
   ADD PRIMARY KEY (`ID_TIPO`);
 
 --
--- Indices de la tabla `usuario`
+-- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`ID_USUARIO`),
   ADD KEY `ID_ROL` (`ID_ROL`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `tipo`
+-- AUTO_INCREMENT for table `tipo`
 --
 ALTER TABLE `tipo`
   MODIFY `ID_TIPO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `canton`
+-- Constraints for table `canton`
 --
 ALTER TABLE `canton`
   ADD CONSTRAINT `canton_ibfk_1` FOREIGN KEY (`ID_PROVINCIA`) REFERENCES `provincia` (`ID_PROVINCIA`);
 
 --
--- Filtros para la tabla `detalle_factura`
+-- Constraints for table `detalle_factura`
 --
 ALTER TABLE `detalle_factura`
   ADD CONSTRAINT `detalle_factura_ibfk_1` FOREIGN KEY (`ID_FACTURA`) REFERENCES `factura` (`ID_FACTURA`),
   ADD CONSTRAINT `detalle_factura_ibfk_2` FOREIGN KEY (`ID_PRODUCTO`) REFERENCES `producto` (`ID_PRODUCTO`);
 
 --
--- Filtros para la tabla `direccion`
+-- Constraints for table `direccion`
 --
 ALTER TABLE `direccion`
   ADD CONSTRAINT `direccion_ibfk_1` FOREIGN KEY (`ID_PROVINCIA`) REFERENCES `provincia` (`ID_PROVINCIA`),
   ADD CONSTRAINT `direccion_ibfk_2` FOREIGN KEY (`ID_CANTON`) REFERENCES `canton` (`ID_CANTON`);
 
 --
--- Filtros para la tabla `factura`
+-- Constraints for table `factura`
 --
 ALTER TABLE `factura`
   ADD CONSTRAINT `factura_ibfk_3` FOREIGN KEY (`ID_SUCURSAL`) REFERENCES `sucursal` (`ID_SUCURSAL`);
 
 --
--- Filtros para la tabla `producto`
+-- Constraints for table `producto`
 --
 ALTER TABLE `producto`
   ADD CONSTRAINT `FK_ID_TIPO` FOREIGN KEY (`ID_TIPO`) REFERENCES `tipo` (`ID_TIPO`);
 
 --
--- Filtros para la tabla `sucursal`
+-- Constraints for table `sucursal`
 --
 ALTER TABLE `sucursal`
   ADD CONSTRAINT `sucursal_ibfk_1` FOREIGN KEY (`ID_DIRECCION`) REFERENCES `direccion` (`ID_DIRECCION`);
 
 --
--- Filtros para la tabla `usuario`
+-- Constraints for table `usuario`
 --
 ALTER TABLE `usuario`
   ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`ID_ROL`) REFERENCES `rol` (`ID_ROL`);

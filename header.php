@@ -8,7 +8,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a href="index.php" class="nav-link">Inicio</a>
+                            <a href="landingPage.php" class="nav-link">Inicio</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle active" data-toggle="dropdown" data-target="desplegable"

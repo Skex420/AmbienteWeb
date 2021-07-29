@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if ($_SESSION['RolUsuario']!=1){
+    if ($_SESSION['RolUsuario']==NULL){
         header("Location: index.php");
     }
     include 'ConnBD.php';
@@ -25,7 +25,7 @@
 ?>
 <body>
     <div class="container-fluid">
-        <h2>Admin</h2>
+        <h2>Bienvenido</h2>
     </div>
 </body>
 

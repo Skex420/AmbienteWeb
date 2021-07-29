@@ -10,11 +10,7 @@
         if (mysqli_num_rows($resultadoRol)==1){
             $rol=mysqli_fetch_assoc($resultadoRol);
             $_SESSION['RolUsuario']=$rol['ID_ROL'];
-            if ($_SESSION['RolUsuario']==1){
-            header("Location: SuccessAdmin.php");
-            }else{
-                header("Location: SuccessUser.php");
-            }
+            header("Location: landingPage.php");
         }else{
             header("Location: invalidLogin.php");
         }
