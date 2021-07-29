@@ -14,7 +14,7 @@
         }else{
             header("Location: invalidLogin.php");
         }
-    }    
+    }   
 ?>
 
 

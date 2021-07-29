@@ -13,6 +13,4 @@
     {
         $conexion -> close();
     }
-
-
 ?>

@@ -58,7 +58,6 @@
             <div class="column-md-auto">
                 <input type="submit" class="btn btn-dark border border-light" id="btnAgregarCarrito" name="btnAgregarCarrito" value="Agregar al carrito">
             </div>
-
         </div>
 
         </form>
