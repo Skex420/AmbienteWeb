@@ -61,7 +61,7 @@
                 <div class="column-md-auto">
                     <?php
                  if ($_SESSION['RolUsuario']==3){
-                    echo "<a href='logout.php' class='btn btn-dark border border-light'>Inicie sesión para comprar</a>";
+                    echo "<a href='logout.php' class='btn btn-dark border border-light'>Registrese o inicie sesión para comprar</a>";
                 }else{
                     echo "<input type='submit' class='btn btn-dark border border-light' id='btnAgregarCarrito'
                     name='btnAgregarCarrito' value='Agregar al carrito'>";
