@@ -1,6 +1,7 @@
 <?php
 
     if (isset($_POST['btnRegister'])){
+        $email=$_POST['txtCorreo'];
         $username=$_POST['txtUsuario'];
         $pass=$_POST['txtPass'];
         include 'ConnBD.php';
@@ -10,7 +11,7 @@
        
         if (mysqli_num_rows($resultadoBusqueda)==0){
             $con -> next_result();
-            $queryInsertarUsuario="call Insertar_Usuario('$username','$pass',2);";
+            $queryInsertarUsuario="call Insertar_Usuario('$email','$username','$pass',2);";
             $resultadoUsuario=$con->query($queryInsertarUsuario);
             $con -> next_result();
             CerrarBD($con);
@@ -31,7 +32,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Lista de productos</title>
+    <title>Le Tech</title>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/simple-sidebar.css" rel="stylesheet">
     <link href="css/background.css" rel="stylesheet">
@@ -51,6 +52,14 @@
             </div>
             <div class="row">
                 <div class="col-12">
+                    <label for="txtCorreo">Correo</label>
+                    <input type="text" id="txtCorreo" name="txtCorreo" class="form-control" value=""
+                        placeholder='Ingrese su correo' required
+                        oninvalid="this.setCustomValidity('El correo es requerido')" oninput="setCustomValidity('')" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
                     <label for="txtUsuario">Usuario</label>
                     <input type="text" id="txtUsuario" name="txtUsuario" class="form-control" value=""
                         placeholder='Ingrese el usuario a registrar' required
@@ -61,7 +70,7 @@
                 <div class="col-12">
 
                     <label for="txtPass">Contraseña</label>
-                    <input type="text" id="txtPass" name="txtPass" class="form-control" value=""
+                    <input type="password" id="txtPass" name="txtPass" class="form-control" value=""
                         placeholder='Ingrese la contraseña deseada' required
                         oninvalid="this.setCustomValidity('La contraseña es requerida')"
                         oninput="setCustomValidity('')" />
