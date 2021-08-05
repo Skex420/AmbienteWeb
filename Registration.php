@@ -13,6 +13,8 @@
             $con -> next_result();
             $queryInsertarUsuario="call Insertar_Usuario('$email','$username','$pass',2);";
             $resultadoUsuario=$con->query($queryInsertarUsuario);
+            NotificarUsuario($email,'Registro de usuario','¡Su cuenta ha sido ingresada exitosamente!
+            En nuestro sitio web encontrara el mejor catálogo de lo último en la tecnología ¡Gracias por formar parte de la comunidad Le Tech!');
             $con -> next_result();
             CerrarBD($con);
             header("Location: index.php");
@@ -20,7 +22,6 @@
             CerrarBD($con);
             header("Location: Registration.php");
         }
-
     }
 
 ?>
