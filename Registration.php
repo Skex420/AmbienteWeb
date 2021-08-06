@@ -20,7 +20,7 @@
             header("Location: index.php");
         }else{
             CerrarBD($con);
-            header("Location: Registration.php");
+            header("Location: invalidRegistration.php");
         }
     }
 
