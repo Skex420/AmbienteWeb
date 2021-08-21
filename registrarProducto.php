@@ -104,7 +104,7 @@
                 </div>
                 <div class="col-2">
 
-                    <label for="txtProducto">Imagen</label>
+                    <label for="txtImagen">Imagen</label>
                     <input type="text" id="txtImagen" name="txtImagen" class="form-control" value=""
                         placeholder='Ingrese el link de la imagen' required
                         oninvalid="this.setCustomValidity('El link de la imagen es requerido')"

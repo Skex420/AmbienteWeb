@@ -63,8 +63,7 @@
                  if ($_SESSION['RolUsuario']==3){
                     echo "<a href='logout.php' class='btn btn-dark border border-light'>Registrese o inicie sesión para comprar</a>";
                 }else{
-                    echo "<input type='submit' class='btn btn-dark border border-light' id='btnAgregarCarrito'
-                    name='btnAgregarCarrito' value='Agregar al carrito'>";
+                    echo "<a href='validarCompra.php?q=".$idTipo."&r=". $idProducto ."' class='btn btn-dark border border-light'>Comprar Producto</a>";
                 }
                 ?>
                 </div>

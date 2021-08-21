@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-07-2021 a las 04:59:51
+-- Tiempo de generación: 21-08-2021 a las 06:30:58
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -35,6 +35,12 @@ END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Buscar_Usuario` (IN `V_USUARIO` VARCHAR(50))  BEGIN
 SELECT * FROM USUARIO WHERE USUARIO=V_USUARIO;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Comprar_Producto` (IN `pID_PRODUCTO` INT(11), IN `pID_TIPO` INT(11), IN `pID_USUARIO` INT(11), IN `pTOTAL_COMPRA` DOUBLE(10,2), IN `pCANTIDAD_PRODUCTOS` TINYINT(10))  BEGIN
+
+INSERT INTO compra (ID_PRODUCTO, ID_TIPO, ID_USUARIO, TOTAL_COMPRA, CANTIDAD_PRODUCTOS, FECHA_COMPRA) VALUES (pID_PRODUCTO, pID_TIPO, pID_USUARIO, pTOTAL_COMPRA, pCANTIDAD_PRODUCTOS, now());
+
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Consultar_Producto` (IN `v_id_tipo` INT)  BEGIN
@@ -77,14 +83,23 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `Eliminar_Producto` (IN `pIdPro` INT
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `Insertar_Usuario` (IN `V_USUARIO` VARCHAR(50), IN `V_PASS` VARCHAR(30), IN `V_ID_ROL` INT(11))  BEGIN
-INSERT usuario SET USUARIO=V_USUARIO, PASS=V_PASS, ID_ROL=V_ID_ROL;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Insertar_Usuario` (IN `V_CORREO` VARCHAR(30), IN `V_USUARIO` VARCHAR(50), IN `V_PASS` VARCHAR(30), IN `V_ID_ROL` INT(11))  BEGIN
+INSERT usuario SET CORREO=V_CORREO, USUARIO=V_USUARIO, PASS=V_PASS, ID_ROL=V_ID_ROL;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Registrar_Producto` (IN `pIdProducto` INT(11), IN `pProducto` VARCHAR(100), IN `pValor` DOUBLE, IN `pDescripcion` VARCHAR(500), IN `pIdTipo` INT(11), IN `pImagen` VARCHAR(500))  BEGIN
 
 INSERT producto
 SET ID_PRODUCTO = pIdProducto, PRODUCTO = pProducto, VALOR = pValor, DESCRIPCION = pDescripcion, ID_TIPO = pIdTipo, IMAGEN = pImagen;
+
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Validar_Usuario` (IN `pUsuario` VARCHAR(100), IN `pPass` VARCHAR(100))  BEGIN
+
+SELECT u.ID_USUARIO FROM USUARIO u
+INNER JOIN ROL r on r.ID_ROL=u.ID_ROL
+
+WHERE u.USUARIO=pUsuario AND u.PASS=pPass;
 
 END$$
 
@@ -107,6 +122,31 @@ CREATE TABLE `canton` (
   `CANTON` varchar(100) NOT NULL,
   `ID_PROVINCIA` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `compra`
+--
+
+CREATE TABLE `compra` (
+  `ID_COMPRA` int(11) NOT NULL,
+  `ID_PRODUCTO` int(11) NOT NULL,
+  `ID_TIPO` int(11) NOT NULL,
+  `ID_USUARIO` int(11) NOT NULL,
+  `TOTAL_COMPRA` double(10,2) NOT NULL,
+  `CANTIDAD_PRODUCTOS` tinyint(10) NOT NULL,
+  `FECHA_COMPRA` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `compra`
+--
+
+INSERT INTO `compra` (`ID_COMPRA`, `ID_PRODUCTO`, `ID_TIPO`, `ID_USUARIO`, `TOTAL_COMPRA`, `CANTIDAD_PRODUCTOS`, `FECHA_COMPRA`) VALUES
+(2, 1, 1, 1, 2.00, 2, '2021-08-20 21:59:36'),
+(6, 1, 1, 1, 500000.00, 4, '2021-08-20 22:21:07'),
+(7, 1, 1, 1, 500000.00, 4, '2021-08-20 22:28:24');
 
 -- --------------------------------------------------------
 
@@ -264,20 +304,25 @@ CREATE TABLE `usuario` (
   `ID_USUARIO` int(11) NOT NULL,
   `USUARIO` varchar(50) NOT NULL,
   `PASS` varchar(30) NOT NULL,
-  `ID_ROL` int(11) NOT NULL
+  `ID_ROL` int(11) NOT NULL,
+  `CORREO` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`ID_USUARIO`, `USUARIO`, `PASS`, `ID_ROL`) VALUES
-(1, 'admin01', 'admin01', 1),
-(2, 'user01', 'user01', 2),
-(3, 'invitado', 'invitado', 3),
-(4, 'LuisFelipe01', ' LuisFelipe01', 2),
-(5, 'LuisFelipe02', 'LuisFelipe02', 2),
-(6, 'LuisFelipe03', 'LuisFelipe03', 2);
+INSERT INTO `usuario` (`ID_USUARIO`, `USUARIO`, `PASS`, `ID_ROL`, `CORREO`) VALUES
+(1, 'admin01', 'admin01', 1, ''),
+(2, 'user01', 'user01', 2, ''),
+(3, 'invitado', 'invitado', 3, ''),
+(4, 'LuisFelipe01', ' LuisFelipe01', 2, ''),
+(5, 'LuisFelipe02', 'LuisFelipe02', 2, ''),
+(6, 'LuisFelipe03', 'LuisFelipe03', 2, ''),
+(19, 'ledezma09@hotmail.es', 'ledezma09@hotmail.es', 2, 'ledezma09@hotmail.es'),
+(20, 'a', 'a', 2, 'a'),
+(21, 'aa', 'aa', 2, 'sadjksandsajkn'),
+(22, 'si', 'si', 2, 'si');
 
 --
 -- Índices para tablas volcadas
@@ -289,6 +334,15 @@ INSERT INTO `usuario` (`ID_USUARIO`, `USUARIO`, `PASS`, `ID_ROL`) VALUES
 ALTER TABLE `canton`
   ADD PRIMARY KEY (`ID_CANTON`),
   ADD KEY `ID_PROVINCIA` (`ID_PROVINCIA`);
+
+--
+-- Indices de la tabla `compra`
+--
+ALTER TABLE `compra`
+  ADD PRIMARY KEY (`ID_COMPRA`),
+  ADD KEY `compra_fk_1` (`ID_PRODUCTO`),
+  ADD KEY `compra_fk_2` (`ID_TIPO`),
+  ADD KEY `compra_fk_3` (`ID_USUARIO`);
 
 --
 -- Indices de la tabla `detalle_factura`
@@ -357,16 +411,22 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `compra`
+--
+ALTER TABLE `compra`
+  MODIFY `ID_COMPRA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT de la tabla `tipo`
 --
 ALTER TABLE `tipo`
-  MODIFY `ID_TIPO` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_TIPO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID_USUARIO` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_USUARIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Restricciones para tablas volcadas
@@ -377,6 +437,14 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `canton`
   ADD CONSTRAINT `canton_ibfk_1` FOREIGN KEY (`ID_PROVINCIA`) REFERENCES `provincia` (`ID_PROVINCIA`);
+
+--
+-- Filtros para la tabla `compra`
+--
+ALTER TABLE `compra`
+  ADD CONSTRAINT `compra_fk_1` FOREIGN KEY (`ID_PRODUCTO`) REFERENCES `producto` (`ID_PRODUCTO`),
+  ADD CONSTRAINT `compra_fk_2` FOREIGN KEY (`ID_TIPO`) REFERENCES `producto` (`ID_TIPO`),
+  ADD CONSTRAINT `compra_fk_3` FOREIGN KEY (`ID_USUARIO`) REFERENCES `usuario` (`ID_USUARIO`);
 
 --
 -- Filtros para la tabla `detalle_factura`
