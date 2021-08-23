@@ -16,15 +16,19 @@
         $resultadoValidar = $ConBD -> query($queryValidar);
         $ConBD -> next_result();
         $validar=mysqli_fetch_array($resultadoValidar);
-
+        $cantidad= $_POST['txtCantidad'];
+       
         if($validar==NULL) {
             CerrarBD($ConBD);
             echo "<script>alert('El usuario o la contraseña son incorrectas')</script>";
             header('refresh:0; validarCompra.php?q='.$idTipo.'&r='. $idProducto);
-        }else{
+        }elseif($cantidad<=0){
+            CerrarBD($ConBD);
+            echo "<script>alert('La cantidad de productos no puede ser menor o igual a 0')</script>";
+            header('refresh:0; validarCompra.php?q='.$idTipo.'&r='. $idProducto);
+            }else{
                 $idUsuario=$validar['ID_USUARIO'];
                 $total= $_POST['txtPrecioTotal'];
-                $cantidad= $_POST['txtCantidad'];
                 $queryCompra = "call Comprar_Producto($idProducto, $idTipo, $idUsuario, $total, $cantidad)"; 
                 $ConBD -> query($queryCompra);
                 CerrarBD($ConBD);
