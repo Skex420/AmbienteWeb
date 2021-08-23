@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-08-2021 a las 06:30:58
+-- Tiempo de generación: 24-08-2021 a las 01:48:50
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -35,6 +35,14 @@ END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Buscar_Usuario` (IN `V_USUARIO` VARCHAR(50))  BEGIN
 SELECT * FROM USUARIO WHERE USUARIO=V_USUARIO;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Busqueda_Query` (IN `v_queryBusqueda` VARCHAR(300))  BEGIN
+
+SELECT * FROM PRODUCTO p
+INNER JOIN TIPO t ON t.ID_TIPO=p.ID_TIPO
+WHERE UPPER(t.TIPO) LIKE UPPER(CONCAT('%',v_queryBusqueda,'%')) OR UPPER(p.PRODUCTO) LIKE UPPER(CONCAT('%',v_queryBusqueda,'%'));
+
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Comprar_Producto` (IN `pID_PRODUCTO` INT(11), IN `pID_TIPO` INT(11), IN `pID_USUARIO` INT(11), IN `pTOTAL_COMPRA` DOUBLE(10,2), IN `pCANTIDAD_PRODUCTOS` TINYINT(10))  BEGIN
@@ -114,18 +122,6 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `canton`
---
-
-CREATE TABLE `canton` (
-  `ID_CANTON` int(11) NOT NULL,
-  `CANTON` varchar(100) NOT NULL,
-  `ID_PROVINCIA` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `compra`
 --
 
@@ -147,46 +143,6 @@ INSERT INTO `compra` (`ID_COMPRA`, `ID_PRODUCTO`, `ID_TIPO`, `ID_USUARIO`, `TOTA
 (2, 1, 1, 1, 2.00, 2, '2021-08-20 21:59:36'),
 (6, 1, 1, 1, 500000.00, 4, '2021-08-20 22:21:07'),
 (7, 1, 1, 1, 500000.00, 4, '2021-08-20 22:28:24');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `detalle_factura`
---
-
-CREATE TABLE `detalle_factura` (
-  `ID_DETALLE_FACTURA` int(11) NOT NULL,
-  `ID_FACTURA` int(11) NOT NULL,
-  `ID_PRODUCTO` int(11) NOT NULL,
-  `CANTIDAD` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `direccion`
---
-
-CREATE TABLE `direccion` (
-  `ID_DIRECCION` int(11) NOT NULL,
-  `ID_PROVINCIA` int(11) NOT NULL,
-  `ID_CANTON` int(11) NOT NULL,
-  `DIRECCION_GENERAL` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `factura`
---
-
-CREATE TABLE `factura` (
-  `ID_FACTURA` int(11) NOT NULL,
-  `FECHA` date NOT NULL,
-  `ID_USUARIO` int(11) NOT NULL,
-  `ID_VENDEDOR` int(11) NOT NULL,
-  `ID_SUCURSAL` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -228,17 +184,6 @@ INSERT INTO `producto` (`ID_PRODUCTO`, `PRODUCTO`, `VALOR`, `DESCRIPCION`, `ID_T
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `provincia`
---
-
-CREATE TABLE `provincia` (
-  `ID_PROVINCIA` int(11) NOT NULL,
-  `PROVINCIA` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `rol`
 --
 
@@ -255,18 +200,6 @@ INSERT INTO `rol` (`ID_ROL`, `ROL`) VALUES
 (1, 'Admin'),
 (2, 'Usuario'),
 (3, 'Invitado');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `sucursal`
---
-
-CREATE TABLE `sucursal` (
-  `ID_SUCURSAL` int(11) NOT NULL,
-  `ID_DIRECCION` int(11) NOT NULL,
-  `TELEFONO` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -329,13 +262,6 @@ INSERT INTO `usuario` (`ID_USUARIO`, `USUARIO`, `PASS`, `ID_ROL`, `CORREO`) VALU
 --
 
 --
--- Indices de la tabla `canton`
---
-ALTER TABLE `canton`
-  ADD PRIMARY KEY (`ID_CANTON`),
-  ADD KEY `ID_PROVINCIA` (`ID_PROVINCIA`);
-
---
 -- Indices de la tabla `compra`
 --
 ALTER TABLE `compra`
@@ -345,29 +271,6 @@ ALTER TABLE `compra`
   ADD KEY `compra_fk_3` (`ID_USUARIO`);
 
 --
--- Indices de la tabla `detalle_factura`
---
-ALTER TABLE `detalle_factura`
-  ADD PRIMARY KEY (`ID_DETALLE_FACTURA`),
-  ADD KEY `ID_FACTURA` (`ID_FACTURA`),
-  ADD KEY `ID_PRODUCTO` (`ID_PRODUCTO`);
-
---
--- Indices de la tabla `direccion`
---
-ALTER TABLE `direccion`
-  ADD PRIMARY KEY (`ID_DIRECCION`),
-  ADD KEY `ID_PROVINCIA` (`ID_PROVINCIA`),
-  ADD KEY `ID_CANTON` (`ID_CANTON`);
-
---
--- Indices de la tabla `factura`
---
-ALTER TABLE `factura`
-  ADD PRIMARY KEY (`ID_FACTURA`),
-  ADD KEY `ID_SUCURSAL` (`ID_SUCURSAL`);
-
---
 -- Indices de la tabla `producto`
 --
 ALTER TABLE `producto`
@@ -375,23 +278,10 @@ ALTER TABLE `producto`
   ADD KEY `FK_ID_TIPO` (`ID_TIPO`);
 
 --
--- Indices de la tabla `provincia`
---
-ALTER TABLE `provincia`
-  ADD PRIMARY KEY (`ID_PROVINCIA`);
-
---
 -- Indices de la tabla `rol`
 --
 ALTER TABLE `rol`
   ADD PRIMARY KEY (`ID_ROL`);
-
---
--- Indices de la tabla `sucursal`
---
-ALTER TABLE `sucursal`
-  ADD PRIMARY KEY (`ID_SUCURSAL`),
-  ADD KEY `ID_DIRECCION` (`ID_DIRECCION`);
 
 --
 -- Indices de la tabla `tipo`
@@ -433,12 +323,6 @@ ALTER TABLE `usuario`
 --
 
 --
--- Filtros para la tabla `canton`
---
-ALTER TABLE `canton`
-  ADD CONSTRAINT `canton_ibfk_1` FOREIGN KEY (`ID_PROVINCIA`) REFERENCES `provincia` (`ID_PROVINCIA`);
-
---
 -- Filtros para la tabla `compra`
 --
 ALTER TABLE `compra`
@@ -447,36 +331,10 @@ ALTER TABLE `compra`
   ADD CONSTRAINT `compra_fk_3` FOREIGN KEY (`ID_USUARIO`) REFERENCES `usuario` (`ID_USUARIO`);
 
 --
--- Filtros para la tabla `detalle_factura`
---
-ALTER TABLE `detalle_factura`
-  ADD CONSTRAINT `detalle_factura_ibfk_1` FOREIGN KEY (`ID_FACTURA`) REFERENCES `factura` (`ID_FACTURA`),
-  ADD CONSTRAINT `detalle_factura_ibfk_2` FOREIGN KEY (`ID_PRODUCTO`) REFERENCES `producto` (`ID_PRODUCTO`);
-
---
--- Filtros para la tabla `direccion`
---
-ALTER TABLE `direccion`
-  ADD CONSTRAINT `direccion_ibfk_1` FOREIGN KEY (`ID_PROVINCIA`) REFERENCES `provincia` (`ID_PROVINCIA`),
-  ADD CONSTRAINT `direccion_ibfk_2` FOREIGN KEY (`ID_CANTON`) REFERENCES `canton` (`ID_CANTON`);
-
---
--- Filtros para la tabla `factura`
---
-ALTER TABLE `factura`
-  ADD CONSTRAINT `factura_ibfk_3` FOREIGN KEY (`ID_SUCURSAL`) REFERENCES `sucursal` (`ID_SUCURSAL`);
-
---
 -- Filtros para la tabla `producto`
 --
 ALTER TABLE `producto`
   ADD CONSTRAINT `FK_ID_TIPO` FOREIGN KEY (`ID_TIPO`) REFERENCES `tipo` (`ID_TIPO`);
-
---
--- Filtros para la tabla `sucursal`
---
-ALTER TABLE `sucursal`
-  ADD CONSTRAINT `sucursal_ibfk_1` FOREIGN KEY (`ID_DIRECCION`) REFERENCES `direccion` (`ID_DIRECCION`);
 
 --
 -- Filtros para la tabla `usuario`
