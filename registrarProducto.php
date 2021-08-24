@@ -77,7 +77,7 @@
                 <div class="col-2">
 
                     <label for="txtValor">Precio</label>
-                    <input type="text" id="txtValor" name="txtValor" class="form-control" value=""
+                    <input type="number" id="txtValor" name="txtValor" class="form-control" value=""
                         placeholder='Ingrese el precio' required
                         oninvalid="this.setCustomValidity('El precio es requerido')" oninput="setCustomValidity('')" />
 
