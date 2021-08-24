@@ -34,19 +34,6 @@
     ?>
 
 <body>
-    <?php
-         if ($_SESSION['RolUsuario']==1){
-            echo '<br>';
-            echo '<div class="container-fluid">';
-            echo '<div class="row">';
-            echo '<div class="col-12">';
-            echo '<a href="registrarProducto.php?q='.$idTipo.'" class="btn btn-info">Registrar Producto</a>';
-            echo '</div>';
-            echo '</div>';
-            echo '</div>';
-            echo '<br>';
-        }
-    ?>
     <div class="card-deck">
         <?php
                 While($fila = mysqli_fetch_array($resultado)){
