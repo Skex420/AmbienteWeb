@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-08-2021 a las 01:48:50
+-- Tiempo de generación: 24-08-2021 a las 02:28:12
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -122,10 +122,10 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `compra`
+-- Estructura de tabla para la tabla `compras`
 --
 
-CREATE TABLE `compra` (
+CREATE TABLE `compras` (
   `ID_COMPRA` int(11) NOT NULL,
   `ID_PRODUCTO` int(11) NOT NULL,
   `ID_TIPO` int(11) NOT NULL,
@@ -134,15 +134,6 @@ CREATE TABLE `compra` (
   `CANTIDAD_PRODUCTOS` tinyint(10) NOT NULL,
   `FECHA_COMPRA` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `compra`
---
-
-INSERT INTO `compra` (`ID_COMPRA`, `ID_PRODUCTO`, `ID_TIPO`, `ID_USUARIO`, `TOTAL_COMPRA`, `CANTIDAD_PRODUCTOS`, `FECHA_COMPRA`) VALUES
-(2, 1, 1, 1, 2.00, 2, '2021-08-20 21:59:36'),
-(6, 1, 1, 1, 500000.00, 4, '2021-08-20 22:21:07'),
-(7, 1, 1, 1, 500000.00, 4, '2021-08-20 22:28:24');
 
 -- --------------------------------------------------------
 
@@ -262,13 +253,10 @@ INSERT INTO `usuario` (`ID_USUARIO`, `USUARIO`, `PASS`, `ID_ROL`, `CORREO`) VALU
 --
 
 --
--- Indices de la tabla `compra`
+-- Indices de la tabla `compras`
 --
-ALTER TABLE `compra`
-  ADD PRIMARY KEY (`ID_COMPRA`),
-  ADD KEY `compra_fk_1` (`ID_PRODUCTO`),
-  ADD KEY `compra_fk_2` (`ID_TIPO`),
-  ADD KEY `compra_fk_3` (`ID_USUARIO`);
+ALTER TABLE `compras`
+  ADD PRIMARY KEY (`ID_COMPRA`);
 
 --
 -- Indices de la tabla `producto`
@@ -301,10 +289,10 @@ ALTER TABLE `usuario`
 --
 
 --
--- AUTO_INCREMENT de la tabla `compra`
+-- AUTO_INCREMENT de la tabla `compras`
 --
-ALTER TABLE `compra`
-  MODIFY `ID_COMPRA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `compras`
+  MODIFY `ID_COMPRA` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo`
@@ -321,14 +309,6 @@ ALTER TABLE `usuario`
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `compra`
---
-ALTER TABLE `compra`
-  ADD CONSTRAINT `compra_fk_1` FOREIGN KEY (`ID_PRODUCTO`) REFERENCES `producto` (`ID_PRODUCTO`),
-  ADD CONSTRAINT `compra_fk_2` FOREIGN KEY (`ID_TIPO`) REFERENCES `producto` (`ID_TIPO`),
-  ADD CONSTRAINT `compra_fk_3` FOREIGN KEY (`ID_USUARIO`) REFERENCES `usuario` (`ID_USUARIO`);
 
 --
 -- Filtros para la tabla `producto`
